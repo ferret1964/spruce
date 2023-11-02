@@ -2,6 +2,7 @@ package com.cognitivemedicine.demo.spruce.security;
 
 
 import com.cognitivemedicine.demo.spruce.views.LoginView;
+import com.cognitivemedicine.demo.spruce.views.content.FileDisabilityView;
 import com.vaadin.flow.spring.security.VaadinWebSecurity;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -20,11 +21,13 @@ public class SecurityConfig extends VaadinWebSecurity { // <2>
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
+
         http.authorizeHttpRequests(auth ->
                 auth.requestMatchers(
                         AntPathRequestMatcher.antMatcher(HttpMethod.GET, "/images/*.png")).permitAll());  // <3>
         super.configure(http);
-        setLoginView(http, LoginView.class); // <4>
+        setLoginView(http, FileDisabilityView.class); // <4>
+
     }
 
     @Bean

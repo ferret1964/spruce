@@ -21,7 +21,7 @@ public class MainLayout extends AppLayout {
     private SecurityService securityService;
 
 
-    private H2 viewTitle;
+    //private H2 viewTitle;
 
     public MainLayout() {
         setPrimarySection(Section.NAVBAR);
@@ -34,11 +34,11 @@ public class MainLayout extends AppLayout {
         //DrawerToggle toggle = new DrawerToggle();
         //toggle.setAriaLabel("Menu toggle");
 
-        viewTitle = new H2();
-        viewTitle.addClassNames(LumoUtility.FontSize.LARGE, LumoUtility.Margin.NONE);
+        //viewTitle = new H2();
+        //viewTitle.addClassNames(LumoUtility.FontSize.LARGE, LumoUtility.Margin.NONE);
 
        //addToNavbar(true, toggle, viewTitle);
-        addToNavbar(true, viewTitle);
+        //addToNavbar(true, viewTitle);
     }
 
     private void addDrawerContent() {
@@ -69,7 +69,7 @@ public class MainLayout extends AppLayout {
     @Override
     protected void afterNavigation() {
         super.afterNavigation();
-        viewTitle.setText(getCurrentPageTitle());
+        //viewTitle.setText(getCurrentPageTitle());
     }
 
     private String getCurrentPageTitle() {
