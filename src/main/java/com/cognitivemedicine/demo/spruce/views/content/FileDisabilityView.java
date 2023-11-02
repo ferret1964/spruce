@@ -1,4 +1,4 @@
-package com.cognitivemedicine.demo.spruce.views.helloworld;
+package com.cognitivemedicine.demo.spruce.views.content;
 
 import com.cognitivemedicine.demo.spruce.views.MainLayout;
 import com.vaadin.flow.component.Key;

@@ -2,7 +2,7 @@ package com.cognitivemedicine.demo.spruce.views;
 
 import com.cognitivemedicine.demo.spruce.security.SecurityService;
 import com.cognitivemedicine.demo.spruce.views.about.AboutView;
-import com.cognitivemedicine.demo.spruce.views.helloworld.FileDisabilityView;
+import com.cognitivemedicine.demo.spruce.views.content.FileDisabilityView;
 import com.vaadin.flow.component.applayout.AppLayout;
 import com.vaadin.flow.component.html.Footer;
 import com.vaadin.flow.component.html.H1;
