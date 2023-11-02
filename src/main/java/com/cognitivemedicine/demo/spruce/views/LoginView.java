@@ -69,6 +69,12 @@ public class LoginView extends VerticalLayout implements BeforeEnterObserver {
     }
     public VerticalLayout getAccessButtons()
     {
+        setSizeFull();
+
+        StreamResource resource = new StreamResource("logindotgov_logo.svg", ()->getClass().getResourceAsStream("/logindotgov_logo.svg"));
+        Image image = new Image(resource,"Login.gov");
+        image.setHeight("18px");
+
         VerticalLayout layout = new VerticalLayout();
         layout.setJustifyContentMode(JustifyContentMode.CENTER);
         layout.setAlignItems(Alignment.START);
@@ -76,10 +82,12 @@ public class LoginView extends VerticalLayout implements BeforeEnterObserver {
         layout.setWidthFull();
         String buttonWidth = "350px";
         //Create Login Buttons
-        Button loginDotGov = new Button("LOGON.GOV");
+        //Button loginDotGov = new Button("LOGON.GOV");
+        Button loginDotGov = new Button(image);
         loginDotGov.setWidth(buttonWidth);
         loginDotGov.addClassNames("logindotgov");
         loginDotGov.setAriaLabel("Sign on with login.gov");
+
         Button idMe = new Button("ID me");
         idMe.addClassName("idme");
         idMe.setWidth(buttonWidth);
