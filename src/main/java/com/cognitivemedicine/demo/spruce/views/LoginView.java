@@ -69,6 +69,16 @@ public class LoginView extends VerticalLayout implements BeforeEnterObserver {
     }
     public VerticalLayout getAccessButtons()
     {
+        setSizeFull();
+
+        StreamResource resource_lg = new StreamResource("logindotgov_logo.svg", ()->getClass().getResourceAsStream("/logindotgov_logo.svg"));
+        Image image_lg = new Image(resource_lg,"Login.gov");
+        image_lg.setHeight("18px");
+
+        StreamResource resource_idme = new StreamResource("Primary-IDme-Logo-RGB-white.svg", ()->getClass().getResourceAsStream("/Primary-IDme-Logo-RGB-white.svg"));
+        Image image_idme = new Image(resource_idme,"Id me");
+        image_idme.setHeight("18px");
+
         VerticalLayout layout = new VerticalLayout();
         layout.setJustifyContentMode(JustifyContentMode.CENTER);
         layout.setAlignItems(Alignment.START);
@@ -76,14 +86,17 @@ public class LoginView extends VerticalLayout implements BeforeEnterObserver {
         layout.setWidthFull();
         String buttonWidth = "350px";
         //Create Login Buttons
-        Button loginDotGov = new Button("LOGON.GOV");
+        //Button loginDotGov = new Button("LOGON.GOV");
+        Button loginDotGov = new Button(image_lg);
         loginDotGov.setWidth(buttonWidth);
         loginDotGov.addClassNames("logindotgov");
         loginDotGov.setAriaLabel("Sign on with login.gov");
-        Button idMe = new Button("ID me");
+
+        Button idMe = new Button(image_idme);
         idMe.addClassName("idme");
         idMe.setWidth(buttonWidth);
         idMe.setAriaLabel("Sign on with ID me");
+
         Button dsLogon = new Button("DS Logon");
         dsLogon.addClassName("dslogon");
         dsLogon.setWidth(buttonWidth);
