@@ -1,1 +1,20 @@
 @import url('./main-layout.css');
+
+vaadin-button.logindotgov {
+    background: #d91837;
+    color: white;
+}
+vaadin-button.idme {
+    background: #33783c;
+    color: white;
+}
+
+vaadin-button.dslogon {
+    background: #003966;
+    color: white;
+}
+
+vaadin-button.myhealthevet {
+    background: #006ab0;
+    color: white;
+}

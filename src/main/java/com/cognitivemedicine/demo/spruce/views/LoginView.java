@@ -41,6 +41,7 @@ public class LoginView extends VerticalLayout implements BeforeEnterObserver {
     public VerticalLayout getHavingTrouble()
     {
         VerticalLayout layout = new VerticalLayout();
+        layout.setSpacing(false);
         layout.add(new H2("Having trouble signing in?"));
         Html help = new Html("<P>Get answers to common questions about <A href=\"signingin\">signing in</A> and <A href=\"verfiy\">verifying your identity</A>.</P>");
         layout.add(help);
@@ -49,6 +50,7 @@ public class LoginView extends VerticalLayout implements BeforeEnterObserver {
     public VerticalLayout getCreateAccount()
     {
         VerticalLayout layout = new VerticalLayout();
+        layout.setSpacing(false);
         layout.add(new H2("Or create an account"));
         layout.add(new Hr());
         HorizontalLayout h1 = new HorizontalLayout();
@@ -70,19 +72,24 @@ public class LoginView extends VerticalLayout implements BeforeEnterObserver {
         VerticalLayout layout = new VerticalLayout();
         layout.setJustifyContentMode(JustifyContentMode.CENTER);
         layout.setAlignItems(Alignment.START);
+        layout.setSpacing(false);
         layout.setWidthFull();
         String buttonWidth = "350px";
         //Create Login Buttons
         Button loginDotGov = new Button("LOGON.GOV");
         loginDotGov.setWidth(buttonWidth);
+        loginDotGov.addClassNames("logindotgov");
         loginDotGov.setAriaLabel("Sign on with login.gov");
         Button idMe = new Button("ID me");
+        idMe.addClassName("idme");
         idMe.setWidth(buttonWidth);
         idMe.setAriaLabel("Sign on with ID me");
         Button dsLogon = new Button("DS Logon");
+        dsLogon.addClassName("dslogon");
         dsLogon.setWidth(buttonWidth);
         dsLogon.setAriaLabel("Sign on with DS Logon");
         Button myHealtheVet = new Button("My HealtheVet");
+        myHealtheVet.addClassName("myhealthevet");
         myHealtheVet.setWidth(buttonWidth);
         myHealtheVet.setAriaLabel("Sign on with MyHealtheVet");
         layout.add(loginDotGov, idMe, dsLogon, myHealtheVet);
