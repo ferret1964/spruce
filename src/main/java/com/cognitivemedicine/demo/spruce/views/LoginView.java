@@ -93,7 +93,7 @@ public class LoginView extends VerticalLayout implements BeforeEnterObserver {
         loginDotGov.setAriaLabel("Sign on with login.gov");
         loginDotGov.addClickListener(e-> {
 
-                    UI.getCurrent().getPage().open(OAUTH_URL_GITHUB);
+                    UI.getCurrent().getPage().setLocation(OAUTH_URL_GITHUB);
             }
         );
 
