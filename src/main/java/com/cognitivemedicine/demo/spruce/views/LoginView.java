@@ -34,8 +34,15 @@ public class LoginView extends VerticalLayout implements BeforeEnterObserver {
         setAlignItems(Alignment.START);
 
         login.setAction("login");
+        Icon exitIcon = new Icon(VaadinIcon.CLOSE_CIRCLE_O);
+        exitIcon.setSize("12px");
+        HorizontalLayout h1 = new HorizontalLayout();
+        h1.setJustifyContentMode(JustifyContentMode.END);
+        h1.setPadding(true);
+        h1.setWidthFull();
+        h1.add(exitIcon);
 
-        add(image, new H1("Sign In"),getAccessButtons(), getCreateAccount(), getHavingTrouble());
+        add(h1,image, new H1("Sign In"),getAccessButtons(), getCreateAccount(), getHavingTrouble());
     }
 
     public VerticalLayout getHavingTrouble()
@@ -54,15 +61,24 @@ public class LoginView extends VerticalLayout implements BeforeEnterObserver {
         layout.add(new H2("Or create an account"));
         layout.add(new Hr());
         HorizontalLayout h1 = new HorizontalLayout();
-        Button createLoginDotGov = new Button(new Icon(VaadinIcon.CHEVRON_CIRCLE_RIGHT));
-        Anchor link1 = new Anchor("", new Html("<P><B>Create an</B> account with <B>Login.gov</B</P>"));
-        h1.add(createLoginDotGov,link1);
+        h1.setAlignItems(Alignment.CENTER);
+        //StreamResource resource = new StreamResource("circle-chevron-right-solid.svg", ()->getClass().getResourceAsStream("/circle-chevron-right-solid.svg"));
+        //Image image = new Image(resource,"circle chevron ");
+        //image.setHeight("18px");
+        Icon icon1 = new Icon(VaadinIcon.CHEVRON_CIRCLE_RIGHT);
+        icon1.setSize("18px");
+        //Button createLoginDotGov = new Button(image);
+        Anchor link1 = new Anchor("", new Html("<P><U><B>Create an</B> account with <B>Login.gov</B></U></P>"));
+        h1.add(icon1,link1);
         layout.add(h1);
         layout.add(new Hr());
         HorizontalLayout h2 = new HorizontalLayout();
-        Anchor link2 = new Anchor("", new Html("<P><B>Create an</B> account with <B>ID.me</B</P>"));
-        Button createIDME = new  Button(new Icon(VaadinIcon.CHEVRON_CIRCLE_RIGHT));
-        h2.add(createIDME,link2);
+        h2.setAlignItems(Alignment.CENTER);
+        Anchor link2 = new Anchor("", new Html("<P><U><B>Create an</B> account with <B>ID.me</B></U></P>"));
+        Icon icon2 = new Icon(VaadinIcon.CHEVRON_CIRCLE_RIGHT);
+        icon2.setSize("18px");
+        // Button createIDME = new  Button(image);
+        h2.add(icon2,link2);
         layout.add(h2);
         layout.add(new Hr());
         return layout;
