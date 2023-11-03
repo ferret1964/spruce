@@ -14,11 +14,12 @@ import com.vaadin.flow.component.textfield.TextField;
 import com.vaadin.flow.router.PageTitle;
 import com.vaadin.flow.router.Route;
 import com.vaadin.flow.router.RouteAlias;
+import jakarta.annotation.security.PermitAll;
 import org.springframework.security.core.parameters.P;
 
 //@PageTitle("Disability")
-@Route(value = "disability", layout = MainLayout.class)
-@RouteAlias(value = "", layout = MainLayout.class)
+@Route(value = "")
+@PermitAll
 public class FileDisabilityView extends VerticalLayout {
 
     private Button backButton;

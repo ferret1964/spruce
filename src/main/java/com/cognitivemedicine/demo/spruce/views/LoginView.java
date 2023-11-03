@@ -1,6 +1,7 @@
 package com.cognitivemedicine.demo.spruce.views;
 
 import com.vaadin.flow.component.Html;
+import com.vaadin.flow.component.UI;
 import com.vaadin.flow.component.button.Button;
 import com.vaadin.flow.component.html.*;
 import com.vaadin.flow.component.icon.Icon;
@@ -16,12 +17,11 @@ import com.vaadin.flow.server.StreamResource;
 import com.vaadin.flow.server.auth.AnonymousAllowed;
 
 @Route("login")
-@PageTitle("Login")
 @AnonymousAllowed
 public class LoginView extends VerticalLayout implements BeforeEnterObserver {
 
     private LoginForm login = new LoginForm();
-
+    private static final String OAUTH_URL_GITHUB = "/oauth2/authorization/github";
     public LoginView() {
         //addClassName("login-view");
         setSizeFull();
@@ -91,6 +91,11 @@ public class LoginView extends VerticalLayout implements BeforeEnterObserver {
         loginDotGov.setWidth(buttonWidth);
         loginDotGov.addClassNames("logindotgov");
         loginDotGov.setAriaLabel("Sign on with login.gov");
+        loginDotGov.addClickListener(e-> {
+
+                    UI.getCurrent().getPage().open(OAUTH_URL_GITHUB);
+            }
+        );
 
         Button idMe = new Button(image_idme);
         idMe.addClassName("idme");

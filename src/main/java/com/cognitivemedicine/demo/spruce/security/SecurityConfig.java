@@ -18,31 +18,20 @@ import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 @EnableWebSecurity // <1>
 @Configuration
 public class SecurityConfig extends VaadinWebSecurity { // <2>
+    private static final String LOGIN_URL = "/login";
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
-
+        super.configure(http);
+        http.oauth2Login().loginPage(LOGIN_URL).permitAll();
+        /*
         http.authorizeHttpRequests(auth ->
                 auth.requestMatchers(
                         AntPathRequestMatcher.antMatcher(HttpMethod.GET, "/images/*.png")).permitAll());  // <3>
         super.configure(http);
         setLoginView(http, FileDisabilityView.class); // <4>
-
+        */
     }
 
-    @Bean
-    public UserDetailsService users() {
-        UserDetails user = User.builder()
-                .username("user")
-                // password = password with this hash, don't tell anybody :-)
-                .password("{bcrypt}$2a$10$GRLdNijSQMUvl/au9ofL.eDwmoohzzS7.rmNSJZ.0FxO/BTk76klW")
-                .roles("USER")
-                .build();
-        UserDetails admin = User.builder()
-                .username("admin")
-                .password("{bcrypt}$2a$10$GRLdNijSQMUvl/au9ofL.eDwmoohzzS7.rmNSJZ.0FxO/BTk76klW")
-                .roles("USER", "ADMIN")
-                .build();
-        return new InMemoryUserDetailsManager(user, admin); // <5>
-    }
+
 }
